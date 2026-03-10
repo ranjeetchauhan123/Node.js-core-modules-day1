@@ -247,3 +247,22 @@ server.listen(1000 ,()=>{
 
 // const os = require('os')
 // console.log(os.hostname());
+
+// const EventEmitter = require('events')
+// const event = new EventEmitter()
+
+// event.on('greet',(username)=>{
+//     console.log(username);
+// })
+
+// event.emit('greet','Ranjeet Chauhan' )
+
+
+// const EventEmitter = require('events')
+// const event = new EventEmitter()
+
+// event.on('user',()=>{
+//     console.log('hello world !');
+// })
+
+// event.emit('user')
