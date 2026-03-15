@@ -208,42 +208,42 @@
 // })
 
 
-const http = require('http')
-const fs = require('fs')
-const path = require('path')
-const querystring = require('querystring')
+// const http = require('http')
+// const fs = require('fs')
+// const path = require('path')
+// const querystring = require('querystring')
 
-const server = http.createServer(( req, res)=>{
-    const filePath = path.join(__dirname , "index.html")
-    fs.readFile(filePath , (err , data)=>{
-        if(req.url === '/submit' && req.method === 'POST'){
-            let body = ""
-            req.on('data', (chunk)=>{
-                body +=chunk
-            })
-            req.on('end' , ()=>{
-                const data = querystring.parse(body)
-                console.log(data);
-                res.write("<h1> form Submit </h1>")    
-                res.write(`<h2>Name : ${data.name}</h2>`)            
-                res.write(`<h2>Age : ${data.age}</h2>`) 
-                res.write(`<h2>Address : ${data.address}</h2>`) 
-                res.end()
-            })
-        }
-        else if(err){
-            res.writeHead(500 , {'content-type' : 'text/html'})
-            res.end('server error !')
-        }
-        else{
-            res.writeHead(200 , {'content-type' : 'text/html'})
-            res.end(data) 
-        }
-    })
-})
-server.listen(1000 ,()=>{
-    console.log('server is listen on port 1000');    
-})
+// const server = http.createServer(( req, res)=>{
+//     const filePath = path.join(__dirname , "index.html")
+//     fs.readFile(filePath , (err , data)=>{
+//         if(req.url === '/submit' && req.method === 'POST'){
+//             let body = ""
+//             req.on('data', (chunk)=>{
+//                 body +=chunk
+//             })
+//             req.on('end' , ()=>{
+//                 const data = querystring.parse(body)
+//                 console.log(data);
+//                 res.write("<h1> form Submit </h1>")    
+//                 res.write(`<h2>Name : ${data.name}</h2>`)            
+//                 res.write(`<h2>Age : ${data.age}</h2>`) 
+//                 res.write(`<h2>Address : ${data.address}</h2>`) 
+//                 res.end()
+//             })
+//         }
+//         else if(err){
+//             res.writeHead(500 , {'content-type' : 'text/html'})
+//             res.end('server error !')
+//         }
+//         else{
+//             res.writeHead(200 , {'content-type' : 'text/html'})
+//             res.end(data) 
+//         }
+//     })
+// })
+// server.listen(1000 ,()=>{
+//     console.log('server is listen on port 1000');    
+// })
 
 // const os = require('os')
 // console.log(os.hostname());
@@ -266,3 +266,66 @@ server.listen(1000 ,()=>{
 // })
 
 // event.emit('user')
+
+// .....................................add two Numbers.................................
+
+// const EventEmitter = require('events')
+// const event = new EventEmitter()
+
+// event.on('sum',(a,b)=>{
+//     console.log(a+b);    
+// })
+// event.emit('sum', 3,4)
+
+// .....................................add check login.................................
+
+// const EventEmitter = require('events')
+// const event = new EventEmitter()
+
+// event.on('student',(user)=>{
+//     if(user === "login"){
+//         console.log('login success');        
+//     }else{
+//         console.log('login Faild');
+//     }
+// })
+// event.emit('student' ,'login')
+
+// .....................................check number even or odd.................................
+
+// const EventEmitter = require('events')
+// const event = new EventEmitter()
+
+// event.on('handlecheck',(num)=>{
+//     if(num%2== 0){
+//         console.log('Event Number',num);        
+//     }else{
+//          console.log('odd Number',num);
+//     }
+// })
+// event.emit('handlecheck', 4)
+
+// .....................................check number even or odd.................................
+
+// const EventEmitter= require('events')
+// const event = new EventEmitter()
+
+// event.on('greet',()=>{
+//     console.log('listner 1');
+// })
+// event.on('greet',()=>{
+//     console.log('listner 2');
+// })
+// event.emit('greet')
+
+// .....................................print currant year.................................
+
+// const EventEmitter= require('events')
+// const event = new EventEmitter()
+
+// event.on('year',()=>{
+//     const currantYear = new Date()
+//     console.log(currantYear.getFullYear());
+// })
+
+// event.emit('year')
